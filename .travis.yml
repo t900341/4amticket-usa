@@ -12,7 +12,7 @@ services:
 script:
   - docker build -t t900341/test-ft-usa ./
 
-  - echo "test Success"
+  #- echo "test Success"
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
   - docker push t900341/test-ft-usa

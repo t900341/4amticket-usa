@@ -10,26 +10,26 @@ services:
 
 
 script:
-  - docker build -t t900341/test-ft-usa ./
+  - docker build -t t900341/4amticket-usa ./
 
   #- echo "test Success"
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push t900341/test-ft-usa
+  - docker push t900341/4amticket-usa
 
-deploy:
-  provider: elasticbeanstalks
-  region: "us-east-1"
-  app: "4amticket-usa"                    #앱 이름
-  env: "4amticketusa-env"               #EB 이름
-  bucket_name: elasticbeanstalk-us-east-1-929316178732     #S3 버킷 이름
-  skip_cleanup: true
-  bucket_path: "4amticket-usa"            #앱이름
-  on:
-    branch: master
+#deploy:
+#  provider: elasticbeanstalks
+#  region: "us-east-1"
+#  app: "4amticket-usa"                    #앱 이름
+#  env: "4amticketusa-env"               #EB 이름
+#  bucket_name: elasticbeanstalk-us-east-1-200476763859     #S3 버킷 이름
+#  skip_cleanup: true
+#  bucket_path: "4amticket-usa"            #앱이름
+#  on:
+#    branch: master
   
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_ACCESS_KEY
 
 
 
